@@ -112,8 +112,15 @@ $ pip install -U nltk
 $ python
 >>> import nltk
 >>> nltk.download()
-```
+NLTK Downloader
+---------------------------------------------------------------------------
+    d) Download   l) List    u) Update   c) Config   h) Help   q) Quit
+---------------------------------------------------------------------------
+Downloader> d
+Download which package (l=list; x=cancel)?
+  Identifier>
 
+```
 
 ---
 
@@ -238,6 +245,7 @@ Or simply use NLTK's recommended tagger via `pos_tag()`
 Provide wrapper for CoreNLP parser `CoreNLPParser()`
 
 ```python
+from nltk.parse.corenlp import CoreNLPParser
 >>> parser = CoreNLPParser(url='http://localhost:9000')
 >>> next(
 ...     parser.raw_parse('The quick brown fox jumps over the lazy dog.')
@@ -334,7 +342,14 @@ Python library for topic modelling
 
 ```python
 >>> from gensim.models.ldamulticore import LdaMulticore
->>> model = LdaMulticore(corpus, id2word=id2word, num_topics=num_topics, ...)
+>>> lda = LdaMulticore(corpus, id2word=id2word, num_topics=num_topics, ...)
+using serial LDA version on this node
+running online LDA training, 100 topics, 1 passes over the supplied corpus of 3931787 documents, updating model once every 10000 documents
+...
+>>> lda.print_topics(20)
+topic #0: 0.009*river + 0.008*lake + 0.006*island + 0.005*mountain + 0.004*area + 0.004*park + 0.004*antarctic + 0.004*south + 0.004*mountains + 0.004*dam
+topic #1: 0.026*relay + 0.026*athletics + 0.025*metres + 0.023*freestyle + 0.022*hurdles + 0.020*ret + 0.017*divisão + 0.017*athletes + 0.016*bundesliga + 0.014*medals
+...
 ```
 
 --
