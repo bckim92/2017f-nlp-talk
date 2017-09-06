@@ -144,7 +144,7 @@ Download which package (l=list; x=cancel)?
 
 ## Corpus - `nltk.corpus` module
 
-For example, to read a list of the words in the Brownn Corpus, use `nltk.corpus.brown.words()`
+For example, to read a list of the words in the Brown Corpus, use `nltk.corpus.brown.words()`
 
 ```python
 >>> from nltk.corpus import brown
@@ -271,7 +271,7 @@ The quick brown fox jumps over the     lazy dog  .
 
 - [spaCy](https://spacy.io/)
 - [unidecode](https://github.com/iki/unidecode)
-- [PyEnchant](http://pythonhosted.org/pyenchant/)
+- [pyEnchant](http://pythonhosted.org/pyenchant/)
 - [gensim](https://radimrehurek.com/gensim/)
 - [fastText](https://github.com/facebookresearch/fastText)
 
@@ -285,6 +285,8 @@ The quick brown fox jumps over the     lazy dog  .
   - One algorithm (the best one) for each purpose
 - Lightning-fast (written in Cython)
 
+.footnote[(Image credit: [spaCy](https://spacy.io/))]
+
 ---
 
 ## Detailed Speed Comparision
@@ -293,6 +295,8 @@ Per-document processing time of various spaCy functionalities against other NLP 
 
 .center.img-77[![](images/spacy-benchmark.png)]
 
+.footnote[(Image credit: [spaCy](https://spacy.io/))]
+
 ---
 
 ## Parse Accuracy
@@ -300,6 +304,8 @@ Per-document processing time of various spaCy functionalities against other NLP 
 Google's [SyntaxNet](https://github.com/tensorflow/models/tree/master/syntaxnet) is the winner
 
 .center.img-77[![](images/spacy-parse-accuracy.png)]
+
+.footnote[(Image credit: [spaCy](https://spacy.io/))]
 
 ---
 
