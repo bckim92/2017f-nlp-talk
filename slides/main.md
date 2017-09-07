@@ -152,6 +152,24 @@ For example, to read a list of the words in the Brown Corpus, use `nltk.corpus.b
 The, Fulton, County, Grand, Jury, said, ...
 ```
 
+--
+
+or in sentences `sents()`
+
+```python
+>>> brown.sents()
+[[u'The', u'Fulton', ...], [u'The', u'jury', ...], ...]
+```
+
+--
+
+with tagging `tagged_words()`
+
+```python
+>>> brown.tagged_words()
+[(u'The', u'AT'), (u'Fulton', u'NP-TL'), ...]
+```
+
 ---
 
 ## Tokenization - `nltk.tokenize` module
@@ -177,13 +195,42 @@ Same principle can be applied to sentences via `sent_tokenize()`
 ['All work and no play makes jack dull boy.', 'All work and no play']
 ```
 
+--
+
+`word_tokenize()` and `sent_tokenize()` are NLTK's recommended tokenizer (`TreebankWordTokenizer` + `PunkSentenceTokenizer`)
+
+---
+
+## Tokenization - `nltk.tokenize` module
+
+Also provide Twitter-aware tokenizer `TweetTokenizer()`
+```python
+>>> from nltk.tokenize import TweetTokenizer
+>>> tknzr = TweetTokenizer()
+>>> s0 = "This is a cooool #dummysmiley: :-) :-P <3 and some arrows < > -> <--"
+>>> tknzr.tokenize(s0)
+['This', 'is', 'a', 'cooool', '#dummysmiley', ':', ':-)', ':-P', '<3', 'and', 'some', 'arrows', '<', '>', '->', '<--']
+```
+
+--
+
+And [Mose Tokenizer](https://github.com/moses-smt/mosesdecoder/blob/master/scripts/tokenizer/tokenizer.perl) `MosesTokenizer()`
+
+```pythonn
+>>> from nltk.tokenize.moses import MosesTokenizer
+>>> tokenizer = MosesTokenizer()
+>>> text = u'This, is a sentence with weird» symbols… appearing everywhere¿'
+>>> tokenizer.tokenize(text)
+[u'This', u',', u'is', u'a', u'sentence', u'with', u'weird', u'»', u'symbols', u'…', u'appearing', u'everywhere', u'¿']
+```
+
 ---
 
 ## Stemming and lemmatization - `nltk.stem` module
 
-<!--
 .center.img-33[![](images/word-stem.png)]
--->
+
+--
 
 Words can be stemmed via `Stemmer()`
 
@@ -194,6 +241,16 @@ Words can be stemmed via `Stemmer()`
 >>> [ps.stem(word) for word in words]
 ['game', 'game', 'game', 'game']
 ```
+
+---
+
+## Stemming and lemmatization - `nltk.stem` module
+
+</br>
+
+.center.img-70[![](images/word-lemm.png)]
+
+</br>
 
 --
 
@@ -242,6 +299,14 @@ Or simply use NLTK's recommended tagger via `pos_tag()`
 
 ## Parsing - `nltk.parser` module
 
+</br>
+
+.center.img-70[![](images/syntactic-parsing.png)]
+
+---
+
+## Parsing - `nltk.parser` module
+
 Provide wrapper for CoreNLP parser `CoreNLPParser()`
 
 ```python
@@ -263,6 +328,44 @@ from nltk.parse.corenlp import CoreNLPParser
  DT   JJ    JJ   NN  VBZ   IN   DT      JJ   NN  .
  |    |     |    |    |    |    |       |    |   |
 The quick brown fox jumps over the     lazy dog  .
+```
+
+---
+
+## Parsing - `nltk.parser` module
+
+</br>
+</br>
+</br>
+</br>
+
+.center.img-90[![](images/dependency-parsing.png)]
+
+.footnote[(Image credit: [Nathan Schneider](http://people.cs.georgetown.edu/nschneid/))]
+
+---
+
+## Parsing - `nltk.parser` module
+
+Provide wrapper for CoreNLP dependency parser `CoreNLPDependencyParser()`
+
+```python
+from nltk.parse.corenlp import CoreNLPDependencyParser
+>>> parser = CoreNLPDependencyParser(url='http://localhost:9000')
+>>> parse, = dep_parser.raw_parse(
+...     'The quick brown fox jumps over the lazy dog.'
+... )
+>>> print(parse.to_conll(4))
+The     DT      4       det
+quick   JJ      4       amod
+brown   JJ      4       amod
+fox     NN      5       nsubj
+jumps   VBZ     0       ROOT
+over    IN      9       case
+the     DT      9       det
+lazy    JJ      9       amod
+dog     NN      5       nmod
+.       .       5       punct
 ```
 
 ---
@@ -314,6 +417,8 @@ Google's [SyntaxNet](https://github.com/tensorflow/models/tree/master/syntaxnet)
 [Stanford CoreNLP](https://stanfordnlp.github.io/CoreNLP/) is the winner
 
 .center.img-77[![](images/spacy-ner-accuracy.png)]
+
+.footnote[(Image credit: [spaCy](https://spacy.io/))]
 
 ---
 
