@@ -5,7 +5,7 @@ layout: true
 ---
 class: titlepage, no-number
 
-# NTLK: the natural language toolkit
+# NLTK: the natural language toolkit
 
 ## .author[Byeongchang Kim]
 
