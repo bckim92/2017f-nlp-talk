@@ -1,11 +1,14 @@
-# remark-Boilerplate
+# 2017f-nlp-talk
 
-This is a personal template and boilerplate for writing simple presentation.
+Slide for 2017F NLP @ SNU, "NLTK: the natural language toolkit".
 
-- [sample](https://bckim92.github.io/remark-boilerplate)
+- [slide](https://bckim92.github.io/2017f-nlp-talk)
 
 If you want to preview your current presentation,
 
 ```
 jekyll serve
 ```
+
+## Credit
+- [@wookayin](https://github.com/wookayin)
